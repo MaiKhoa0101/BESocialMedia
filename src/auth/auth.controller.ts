@@ -5,6 +5,7 @@ import { SignUpDto } from './dto/signupdto';
 import { LoginDto } from './dto/logindto';
 import { isNumber, isString } from 'class-validator';
 import { LoginData } from './schema/login.schema';
+import { Console } from 'console';
 
 @Controller('auth')
 export class AuthController {
@@ -12,6 +13,8 @@ export class AuthController {
 
   @Post("register")
   async registerUser(@Body() signUpData: SignUpDto) {
+    console.log(signUpData);
+    
     return this.authService.registerUser(signUpData);
   }
 
